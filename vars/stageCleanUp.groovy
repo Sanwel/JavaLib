@@ -14,9 +14,9 @@ def call (Closure body) {
         body.resolveStrategy = Closure.DELEGATE_FIRST
         body.delegate = config
         body()
-                
-		sh "docker rm -f ${config.dockerContainerName}"
-                sh "docker rmi ${config.dockerImageName}${env.BUILD_ID} > /dev/null 2>&1"
-                sh "git clean -ffdx"
+
+        sh "docker rm -f ${config.dockerContainerName}"
+        sh "docker rmi ${config.dockerImageName}${env.BUILD_ID} > /dev/null 2>&1"
+        sh "git clean -ffdx"
     }
 }
